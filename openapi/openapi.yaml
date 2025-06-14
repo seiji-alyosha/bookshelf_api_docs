@@ -50,24 +50,48 @@ paths:
     get:
       tags:
       - Book info
-      summary: "Gets information about a book.""
+      summary: "Gets information about a book."
       description: "Gets the title, author, notes, and the added date of a book based on the book id. "
       operationId: GetBookInfo
       parameters:
+        - name: id
+          # where the parameter is located (path/query/header/cookie)
+          in: path
+          # either true or false. Path parameters are always true.
+          required: true
+          # data type and constraints 
+          schema:
+            type: integer
+          # minimum:
       responses:
-
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  '/user':
-    $ref: 'paths/user.yaml'
-  '/user/list':
-    $ref: 'paths/user-status.yaml'
-  /pathItem:
-    $ref: paths/pathItem.yaml
-  /pathItemWithExamples:
-    $ref: paths/pathItemWithExamples.yaml
-  '/echo':
-    $ref: 'paths/echo.yaml'
+      # successful 
+        200:
+          description: "Retrieved book info."
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  author:
+                    type: string
+                  notes:
+                    type: string
+                  added: 
+                    type: string
+                    format: date-time
+      # need authentication
+        401:
+          description: "Please sign in to retrieve book info."
+      # unsuccessful 
+        404:
+          description: "Book not found."
+      # server error
+        500:
+          description: "Sorry, there was an error with the server. Please try again later."
 components:
   securitySchemes:
     main_auth:

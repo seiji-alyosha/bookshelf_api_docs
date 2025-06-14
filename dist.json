@@ -60,6 +60,32 @@
     "url": "https://github.com/Redocly/create-openapi-repo"
   },
   "paths": {
+    "/books/<int:id>": {
+      "get": {
+        "tags": [
+          "Book info"
+        ],
+        "summary": "Gets information about a book.",
+        "description": "Gets the title, author, notes, and the added date of a book based on the book id. ",
+        "operationId": "GetBookInfo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "path": null,
+            "query": null,
+            "header": null,
+            "cookie": null
+          }
+        ],
+        "responses": null
+      }
+    },
     "/users/{username}": {
       "parameters": [
         {
