@@ -18,26 +18,16 @@ info:
 externalDocs:
   description: "Find out how to create a GitHub repo for your OpenAPI definition."
   url: 'https://github.com/Redocly/create-openapi-repo'
-tags:
-  - name: Echo
-    description: "Example echo operations."
-  - name: User
-    description: "Example actions on user accounts."
-  - name: Admin
-    description: "Example operations reserved for administrators."
-  - name: Info
-    description: "Example operations for retrieving information."
-  - name: Tag
-    description: "This is a tag description."
-x-tagGroups:
-  - name: General
+tags: #where the tags are defined and can be used in paths for a specific endpoint.
+  - name: One book
+  - name: All books
+  - name: Authentication
+x-tagGroups: #organizes the defined tags (from the previous section) into a larger category. In the UI, this is the heading above the two endpoint tags.
+  - name: Endpoints
     tags:
-      - User
-      - Info
-      - Echo
-  - name: Administration
-    tags:
-      - Admin
+      - One book
+      - All books
+      - Authentication
 servers:
   - url: https://{tenant}/api/v1
     variables:
@@ -46,10 +36,10 @@ servers:
         description: Your tenant id
   - url: https://example.com/api/v1
 paths:    
-  /books/<int:id>:
+  /books/{id}:
     get:
       tags:
-      - Book info
+      - One book
       summary: "Gets information about a book."
       description: "Gets the title, author, notes, and the added date of a book based on the book id. "
       operationId: GetBookInfo
@@ -63,35 +53,26 @@ paths:
           schema:
             type: integer
           # minimum:
-      responses:
-      # successful 
-        200:
-          description: "Retrieved book info."
-          content: 
+      responses:        
+      # unsuccessful 
+        '404':
+          description: "Book not found"
+          content:
             application/json:
               schema:
                 type: object
                 properties:
-                  id:
-                    type: integer
-                  title:
+                  error:
                     type: string
-                  author:
-                    type: string
-                  notes:
-                    type: string
-                  added: 
-                    type: string
-                    format: date-time
-      # need authentication
-        401:
-          description: "Please sign in to retrieve book info."
-      # unsuccessful 
-        404:
-          description: "Book not found."
-      # server error
-        500:
-          description: "Sorry, there was an error with the server. Please try again later."
+                    example: "Sorry, we couldn't find a book with that id. Please try a different id."
+  /books:
+    get:
+      tags:
+        - All books
+      summary: "Gets information about all books in the user's library."
+      description: "Gets the title, author, notes, and added date for all books added by the user. "
+      operationId: GetAllBooks
+      
 components:
   securitySchemes:
     main_auth:
@@ -123,7 +104,7 @@ webhooks:
         content:
           application/json:
             schema:
-              $ref: 'components/schemas/User.yaml'
+              $ref: #'components/schemas/User.yaml'
       responses:
         '200':
           description: "Successfully retrieved information about a new user."
