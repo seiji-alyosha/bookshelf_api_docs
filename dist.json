@@ -3,21 +3,19 @@
   "info": {
     "version": "1.0.0",
     "title": "Ennoia API",
-    "termsOfService": "https://example.com/terms/",
     "contact": {
       "name": "Jake Tanis",
       "email": "jakktan@gmail.com",
       "url": "https://github.com/seiji-alyosha"
     },
     "license": {
-      "name": null,
-      "url": null
+      "name": "MIT",
+      "url": "https://github.com/seiji-alyosha/bookshelf_api_docs?tab=MIT-1-ov-file"
     },
     "x-logo": {
-      "url": "docs\\Ennoia.svg",
+      "url": "./Ennoia.svg",
       "altText": "Ennoia logo"
-    },
-    "description": "You can access all of your books and book notes from Ennoia using the API.\n"
+    }
   },
   "servers": [
     {
@@ -33,26 +31,15 @@
       "url": "https://example.com/api/v1"
     }
   ],
-  "tags": [
-    {
-      "name": "One book"
-    },
-    {
-      "name": "All books"
-    }
-  ],
   "externalDocs": {
-    "description": "Find out how to create a GitHub repo for your OpenAPI definition.",
-    "url": "https://github.com/Redocly/create-openapi-repo"
+    "description": "GitHub",
+    "url": "https://github.com/seiji-alyosha/bookshelf_api_docs"
   },
   "paths": {
     "/books/{id}": {
       "get": {
-        "tags": [
-          "One book"
-        ],
-        "summary": "Gets information about a book.",
-        "description": "Gets the title, author, notes, and the added date of a book based on the book id. ",
+        "summary": "Get information about one book.",
+        "description": "Gets the title, author, notes, and the added date of a book based on the book id.",
         "operationId": "GetBookInfo",
         "parameters": [
           {
@@ -79,11 +66,8 @@
     },
     "/books": {
       "get": {
-        "tags": [
-          "All books"
-        ],
-        "summary": "Gets information about all books in the user's library.",
-        "description": "Gets the title, author, notes, and added date for all books added by the user. ",
+        "summary": "Get information about all books in your library.",
+        "description": "Gets the title, author, notes, and added date for all books.",
         "operationId": "GetAllBooks",
         "responses": {
           "200": {
@@ -270,13 +254,5 @@
       }
     }
   },
-  "x-tagGroups": [
-    {
-      "name": "Endpoints",
-      "tags": [
-        "One book",
-        "All books"
-      ]
-    }
-  ]
+  "x-tagGroups": null
 }

@@ -2,30 +2,20 @@ openapi: 3.1.0
 info:
   version: 1.0.0
   title: Ennoia API
-  termsOfService: https://example.com/terms/
   contact:
     name: Jake Tanis
     email: jakktan@gmail.com
     url: https://github.com/seiji-alyosha
   license:
-    name:
-    url:
+    name: MIT
+    url: https://github.com/seiji-alyosha/bookshelf_api_docs?tab=MIT-1-ov-file
   x-logo:
-    url: docs\Ennoia.svg
+    url: ./Ennoia.svg
     altText: Ennoia logo
-  description: >
-    You can access all of your books and book notes from Ennoia using the API.
 externalDocs:
-  description: "Find out how to create a GitHub repo for your OpenAPI definition."
-  url: 'https://github.com/Redocly/create-openapi-repo'
-tags: #where the tags are defined and can be used in paths for a specific endpoint.
-  - name: One book
-  - name: All books
+  description: "GitHub"
+  url: 'https://github.com/seiji-alyosha/bookshelf_api_docs'
 x-tagGroups: #organizes the defined tags (from the previous section) into a larger category. In the UI, this is the heading above the two endpoint tags.
-  - name: Endpoints
-    tags:
-      - One book
-      - All books
 servers:
   - url: https://{tenant}/api/v1
     variables:
@@ -36,10 +26,8 @@ servers:
 paths:
   /books/{id}:
     get:
-      tags:
-      - One book
-      summary: "Gets information about a book."
-      description: "Gets the title, author, notes, and the added date of a book based on the book id. "
+      summary: "Get information about one book."
+      description: "Gets the title, author, notes, and the added date of a book based on the book id."
       operationId: GetBookInfo
       parameters:
         - $ref: '#/components/parameters/id'
@@ -55,10 +43,8 @@ paths:
 
   /books:
     get:
-      tags:
-        - All books
-      summary: "Gets information about all books in the user's library."
-      description: "Gets the title, author, notes, and added date for all books added by the user. "
+      summary: "Get information about all books in your library."
+      description: "Gets the title, author, notes, and added date for all books."
       operationId: GetAllBooks
       responses:
         '200':
