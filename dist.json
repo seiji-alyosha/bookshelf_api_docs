@@ -21,6 +21,9 @@
     {
       "url": "https://ennoia.pythonanywhere.com/api/v1",
       "description": "Production server"
+    },
+    {
+      "url": "https://username:password@ennoia.pythonanywhere.com/api/v1"
     }
   ],
   "externalDocs": {
