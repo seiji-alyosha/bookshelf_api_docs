@@ -19,16 +19,8 @@
   },
   "servers": [
     {
-      "url": "https://{tenant}/api/v1",
-      "variables": {
-        "tenant": {
-          "default": "www",
-          "description": "Your tenant id"
-        }
-      }
-    },
-    {
-      "url": "https://example.com/api/v1"
+      "url": "https://ennoia.pythonanywhere.com/api/v1",
+      "description": "Production server"
     }
   ],
   "externalDocs": {

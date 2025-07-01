@@ -17,12 +17,9 @@ externalDocs:
   url: 'https://github.com/seiji-alyosha/bookshelf_api_docs'
 x-tagGroups: #organizes the defined tags (from the previous section) into a larger category. In the UI, this is the heading above the two endpoint tags.
 servers:
-  - url: https://{tenant}/api/v1
-    variables:
-      tenant:
-        default: www
-        description: Your tenant id
-  - url: https://example.com/api/v1
+  - url: https://ennoia.pythonanywhere.com/api/v1
+    description: Production server
+  - url: https://username:password@ennoia.pythonanywhere.com/api/v1
 paths:
   /books/{id}:
     get:
