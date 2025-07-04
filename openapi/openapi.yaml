@@ -8,13 +8,13 @@ info:
     url: https://github.com/seiji-alyosha
   license:
     name: MIT
-    url: https://github.com/seiji-alyosha/bookshelf_api_docs?tab=MIT-1-ov-file
+    url: https://github.com/seiji-alyosha/ennoia_api_docs?tab=MIT-1-ov-file
   x-logo:
     url: ./Ennoia.svg
     altText: Ennoia logo
 externalDocs:
   description: "GitHub"
-  url: 'https://github.com/seiji-alyosha/bookshelf_api_docs'
+  url: 'https://github.com/seiji-alyosha/ennoia_api_docs'
 x-tagGroups: #organizes the defined tags (from the previous section) into a larger category. In the UI, this is the heading above the two endpoint tags.
 servers:
   - url: https://ennoia.pythonanywhere.com/api/v1
